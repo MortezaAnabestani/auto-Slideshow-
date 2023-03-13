@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Acmilan2</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body{
+            background-color: goldenrod;
+        }
+        #wrapper {
+            width: 700px;
+            margin: 100px auto;
+/*            border: 1px solid black;*/
+            border-radius: 250px;
+            padding-left: 100px;
+        }
+        #slider{
+            position: relative;
+            width: 600px;
+            height: 300px;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+        #slider li{
+            position: absolute;
+            animation: slider 20s infinite;
+            height: 300px;
+            border: 2px solid gray;
+            border-radius: 500px;
+            overflow: hidden;
+        }
+        #slider li:nth-child(2){
+            transform: translateX(300px) translateZ(-300px) rotateY(-45deg);
+            animation-delay: -15s;
+        }
+        #slider li:nth-child(3) {
+            transform: translateZ(-500px);
+            animation-delay: -10s;
+        }
+        #slider li:nth-child(4) {
+            transform: translateX(-300px) translateZ(-300px) rotateY(45deg);
+            animation-delay: -5s;
+        }
+        @keyframes slider{
+            0%,20% {
+                transform: translateX(0);
+            }
+            25%,45% {
+                transform: translateX(-300px) translateZ(-400px) rotateY(45deg);
+            }
+            50%,70% {
+                transform: translateZ(-500px);
+            }
+            75%,95% {
+                transform: translateX(300px) translateZ(-400px) rotateY(-45deg);
+            }
+            97% {
+                transform: translateX(300px) translateZ(-300px) rotateY(-45deg) translateX(200px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <ul id="slider">
+            <li><img src="images/1.jpg" width="600" height="300" /></li>
+            <li><img src="images/2.jpg" width="600" height="300" /></li>
+            <li><img src="images/3.jpg" width="600" height="300" /></li>
+            <li><img src="images/4.jpeg" width="600" height="300" /></li>
+        </ul>
+    </div>
+</body>
+</html>
